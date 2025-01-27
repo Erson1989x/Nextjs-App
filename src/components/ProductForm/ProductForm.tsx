@@ -21,7 +21,8 @@ const ProductForm = ({ onSubmit }: ProductFormProps) => {
     <Formik
       initialValues={{ name: "", price: "", currency: "EUR" }}
       validationSchema={validationSchema}
-      onSubmit={(values, { resetForm }) => {
+      onSubmit={async(values, { resetForm }) => {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
         onSubmit({
           name: values.name,
           price: Number(values.price),
@@ -31,54 +32,56 @@ const ProductForm = ({ onSubmit }: ProductFormProps) => {
       }}
     >
       {({ isSubmitting }) => (
-        <Form className="space-y-4 max-w-md mx-auto p-4 bg-white rounded-lg shadow">
+        <Form className="space-y-4">
           <div>
             <label
               htmlFor="name"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
             >
               Name
             </label>
             <Field
               type="text"
               name="name"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors"
+              placeholder="Nume produs"
             />
             <ErrorMessage
               name="name"
               component="div"
-              className="text-red-500 text-sm mt-1"
+              className="text-red-600 dark:text-red-400 text-sm mt-1"
             />
           </div>
           <div>
             <label
               htmlFor="price"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300"
             >
               Price
             </label>
             <Field
               type="number"
               name="price"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors"
+              placeholder="Pret produs"
             />
             <ErrorMessage
               name="price"
               component="div"
-              className="text-red-500 text-sm mt-1"
+              className="text-red-600 dark:text-red-400 text-sm mt-1"
             />
           </div>
           <div>
             <label
               htmlFor="currency"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
             >
               Moneda
             </label>
             <Field
               as="select"
               name="currency"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors"
             >
               <option value="EUR">EUR</option>
               <option value="RON">RON</option>
@@ -86,15 +89,41 @@ const ProductForm = ({ onSubmit }: ProductFormProps) => {
             <ErrorMessage
               name="currency"
               component="div"
-              className="text-red-500 text-sm mt-1"
+              className="text-red-600 text-sm mt-1 dark:text-red-400"
             />
           </div>
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            className="w-full px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Add
+            {isSubmitting ? (
+              <span className="flex items-center justify-center">
+                <svg
+                  className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  ></path>
+                </svg>
+                Adaugare...
+              </span>
+            ) : (
+              "Adauga produs"
+            )}
           </button>
         </Form>
       )}

@@ -22,14 +22,25 @@ export default function Home() {
     }
 
   return (
-    <main className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+      <main className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold text-center text-gray-900 mb-8">
+        <h1 className="text-4xl font-bold text-center mb-2 text-gray-800 dark:text-white">
           Product Management
         </h1>
-        <ProductForm onSubmit={handleAddProduct} />
-        <ProductList products={products} onDelete={handleDeleteProduct} />
+        <p className="text-center text-gray-600 dark:text-gray-300 mb-8">Add and manage your products</p>
+        <div className="grid gap-8 md:grid-cols-[2fr_3fr]">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+            <h2 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Add new product</h2>
+            <ProductForm onSubmit={handleAddProduct} />
+          </div>
+          <div className="bg-white dark:bg-gray-800 roudned-lg shadow-lg p-6">
+            <h2 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Lista Produse</h2>
+            <ProductList products={products} onDelete={handleDeleteProduct} />
+          </div>
+        </div>
       </div>
-    </main>
+      </main>
+    </div>
   );
 }
