@@ -54,7 +54,7 @@ const ProductList = ({ products, onDelete }: ProductListProps) => {
           {products.map((product) => (
             <li
               key={product.id}
-              className="py-4 hover:bg-gray-50 transition-colors duration-150 ease-in-out"
+              className="py-4 px-4 hover:bg-gray-50 transition-colors duration-150 ease-in-out cursor-pointer hover:bg-gray-50 hover:shadow-md rounded-lg"
             >
               <div className="flex items-center justify-between">
                 <div className="min-w-0 flex-1">

@@ -1,56 +1,26 @@
-# Aplicație de Gestionare a Produselor
+# Aplicatie de Management Produse
 
-O aplicație modernă Next.js pentru gestionarea listelor de produse cu actualizări în timp real și persistența datelor.
+Aplicatie Next.js pentru gestionarea unei liste de produse.
 
-## Funcționalități
+## Functionalitati
 
-- ✨ Gestionare dinamică a produselor
-  - Adăugare produse noi cu nume, preț și valută
-  - Ștergere produse cu confirmare
-  - Persistența datelor folosind local storage
-- 🛡️ Validare Formular
-  - Nume produs obligatoriu (minim 3 caractere)
-  - Validare preț pozitiv
-  - Selecție valută (EUR/RON)
-- 💅 Interfață Modernă
-  - Design responsive și curat folosind Tailwind CSS
-  - Tranziții și animații fluide
-  - Dialog de confirmare pentru acțiuni importante
-- 🔧 Caracteristici Tehnice
-  - Construit cu Next.js 14 și TypeScript
-  - Gestionare formulare cu Formik și Yup
-  - Persistență în local storage
-  - Gestionare sigură a valutei cu TypeScript enums
+- Adaugare produse (nume, pret, valuta)
+- Stergere produse
+- Salvare automata in browser
+- Validare formular
+- Design modern
 
-## Tehnologii Utilizate
+## Tehnologii
 
-- **Framework**: Next.js 14 cu TypeScript
-- **Stilizare**: Tailwind CSS
-- **Gestionare Formulare**: Formik cu validare Yup
-- **Gestionare Stare**: React Hooks
-- **Persistența Datelor**: API Local Storage
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- Formik + Yup
+- Local Storage
 
-## Gettin Started
+## Instalare si Pornire
 
-Initlizare proiect
-
+1. Instaleaza Node.js si ruleaza:
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-### Cerințe Preliminare
-
-- Node.js 18+ 
-- npm sau yarn
-
-### Instalare
-
-1. Clonează repository-ul:
-```bash
-git clone [url-ul-repository-ului]
