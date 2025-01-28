@@ -21,12 +21,12 @@ const ProductForm = ({ onSubmit }: ProductFormProps) => {
     <Formik
       initialValues={{ name: "", price: "", currency: "EUR" }}
       validationSchema={validationSchema}
-      onSubmit={async(values, { resetForm }) => {
+      onSubmit={async (values, { resetForm }) => {
         await new Promise((resolve) => setTimeout(resolve, 1000));
         onSubmit({
           name: values.name,
           price: Number(values.price),
-          currency: values.currency as Currency
+          currency: values.currency as Currency,
         });
         resetForm();
       }}
@@ -81,7 +81,7 @@ const ProductForm = ({ onSubmit }: ProductFormProps) => {
             <Field
               as="select"
               name="currency"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors cursor-pointer"
             >
               <option value="EUR">EUR</option>
               <option value="RON">RON</option>
