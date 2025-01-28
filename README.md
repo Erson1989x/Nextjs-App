@@ -1,8 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aplicație de Gestionare a Produselor
 
-## Getting Started
+O aplicație modernă Next.js pentru gestionarea listelor de produse cu actualizări în timp real și persistența datelor.
 
-First, run the development server:
+## Funcționalități
+
+- ✨ Gestionare dinamică a produselor
+  - Adăugare produse noi cu nume, preț și valută
+  - Ștergere produse cu confirmare
+  - Persistența datelor folosind local storage
+- 🛡️ Validare Formular
+  - Nume produs obligatoriu (minim 3 caractere)
+  - Validare preț pozitiv
+  - Selecție valută (EUR/RON)
+- 💅 Interfață Modernă
+  - Design responsive și curat folosind Tailwind CSS
+  - Tranziții și animații fluide
+  - Dialog de confirmare pentru acțiuni importante
+- 🔧 Caracteristici Tehnice
+  - Construit cu Next.js 14 și TypeScript
+  - Gestionare formulare cu Formik și Yup
+  - Persistență în local storage
+  - Gestionare sigură a valutei cu TypeScript enums
+
+## Tehnologii Utilizate
+
+- **Framework**: Next.js 14 cu TypeScript
+- **Stilizare**: Tailwind CSS
+- **Gestionare Formulare**: Formik cu validare Yup
+- **Gestionare Stare**: React Hooks
+- **Persistența Datelor**: API Local Storage
+
+## Gettin Started
+
+Initlizare proiect
 
 ```bash
 npm run dev
@@ -14,23 +44,13 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Cerințe Preliminare
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Node.js 18+ 
+- npm sau yarn
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Instalare
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Clonează repository-ul:
+```bash
+git clone [url-ul-repository-ului]

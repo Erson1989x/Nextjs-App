@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { Product } from "@/types/products";
+import { Product, Currency } from "@/types/products";
 
 const validationSchema = Yup.object({
   name: Yup.string()
@@ -26,7 +26,7 @@ const ProductForm = ({ onSubmit }: ProductFormProps) => {
         onSubmit({
           name: values.name,
           price: Number(values.price),
-          currency: values.currency,
+          currency: values.currency as Currency
         });
         resetForm();
       }}
@@ -36,52 +36,52 @@ const ProductForm = ({ onSubmit }: ProductFormProps) => {
           <div>
             <label
               htmlFor="name"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+              className="block text-sm font-medium text-gray-700 mb-1"
             >
               Nume
             </label>
             <Field
               type="text"
               name="name"
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
               placeholder="Nume produs"
             />
             <ErrorMessage
               name="name"
               component="div"
-              className="text-red-600 dark:text-red-400 text-sm mt-1"
+              className="text-red-600 text-sm mt-1"
             />
           </div>
           <div>
             <label
               htmlFor="price"
-              className="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300"
+              className="block text-sm font-medium text-gray-700 mb-1"
             >
               Pret
             </label>
             <Field
               type="number"
               name="price"
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
               placeholder="Pret produs"
             />
             <ErrorMessage
               name="price"
               component="div"
-              className="text-red-600 dark:text-red-400 text-sm mt-1"
+              className="text-red-600 text-sm mt-1"
             />
           </div>
           <div>
             <label
               htmlFor="currency"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+              className="block text-sm font-medium text-gray-700 mb-1"
             >
               Moneda
             </label>
             <Field
               as="select"
               name="currency"
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
             >
               <option value="EUR">EUR</option>
               <option value="RON">RON</option>
@@ -89,7 +89,7 @@ const ProductForm = ({ onSubmit }: ProductFormProps) => {
             <ErrorMessage
               name="currency"
               component="div"
-              className="text-red-600 text-sm mt-1 dark:text-red-400"
+              className="text-red-600 text-sm mt-1"
             />
           </div>
           <button
