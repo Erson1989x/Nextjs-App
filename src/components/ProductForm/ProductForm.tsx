@@ -38,7 +38,7 @@ const ProductForm = ({ onSubmit }: ProductFormProps) => {
               htmlFor="name"
               className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
             >
-              Name
+              Nume
             </label>
             <Field
               type="text"
@@ -57,7 +57,7 @@ const ProductForm = ({ onSubmit }: ProductFormProps) => {
               htmlFor="price"
               className="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300"
             >
-              Price
+              Pret
             </label>
             <Field
               type="number"

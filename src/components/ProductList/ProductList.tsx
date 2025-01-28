@@ -5,9 +5,11 @@ interface ProductListProps {
   onDelete: (id: string) => void;
 }
 
+import React from "react";
+
 const ProductList = ({ products, onDelete }: ProductListProps) => {
   return (
-    <div className="space-y-4 max-h-[300px] overflow-y-auto">
+    <div className="space-y-4">
       {products.length === 0 ? (
         <div className="text-center py-8">
           <div className="text-gray-400 dark:text-gray-500 mb-2">
@@ -26,10 +28,10 @@ const ProductList = ({ products, onDelete }: ProductListProps) => {
             </svg>
           </div>
           <p className="text-gray-500 dark:text-gray-400">
-            No products in the list
+            Nu ai adaugat produse
           </p>
-          <p className="text-sm text-gray-400 dark:text-gray-500">
-            Add your first product using the form
+          <p className="text-sm text-gray-400 dark-text-gray-500">
+            Adauga produse in lista de produse
           </p>
         </div>
       ) : (
@@ -52,8 +54,8 @@ const ProductList = ({ products, onDelete }: ProductListProps) => {
                 </div>
                 <div className="ml-4 flex-shrink-0">
                   <button
+                    className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-150 ease-in-out"
                     onClick={() => onDelete(product.id)}
-                    className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors"
                   >
                     <svg
                       className="h-4 w-4 mr-1"
@@ -68,7 +70,7 @@ const ProductList = ({ products, onDelete }: ProductListProps) => {
                         d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
                       />
                     </svg>
-                    Delete
+                    Sterge
                   </button>
                 </div>
               </div>
