@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { Product, Currency } from "@/types/products";
+import { Currency } from "@/types/products";
+import { ProductAction } from "@/context/ProductContext";
 
 const validationSchema = Yup.object({
   name: Yup.string()
@@ -13,20 +14,23 @@ const validationSchema = Yup.object({
 });
 
 interface ProductFormProps {
-  onSubmit: (product: Omit<Product, "id">) => void;
+  dispatch: React.Dispatch<ProductAction>;
 }
 
-const ProductForm = ({ onSubmit }: ProductFormProps) => {
+const ProductForm = ({ dispatch }: ProductFormProps) => {
   return (
     <Formik
       initialValues={{ name: "", price: "", currency: "EUR" }}
       validationSchema={validationSchema}
       onSubmit={async (values, { resetForm }) => {
         await new Promise((resolve) => setTimeout(resolve, 1000));
-        onSubmit({
-          name: values.name,
-          price: Number(values.price),
-          currency: values.currency as Currency,
+        dispatch({
+          type: "addProduct",
+          payload: {
+            name: values.name,
+            price: Number(values.price),
+            currency: values.currency as Currency,
+          },
         });
         resetForm();
       }}

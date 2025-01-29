@@ -3,13 +3,14 @@ import React, { useState } from "react";
 import EmptyProductList from "../EmptyProductList/EmptyProductList";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 import ProductItem from "../ProductItem/ProductItem";
+import { ProductAction } from "@/context/ProductContext";
 
 interface ProductListProps {
   products: Product[];
-  onDelete: (id: string) => void;
+  dispatch: React.Dispatch<ProductAction>;
 }
 
-const ProductList = ({ products, onDelete }: ProductListProps) => {
+const ProductList = ({ products, dispatch }: ProductListProps) => {
   const [deleteId, setDeleteId] = useState<string | null>(null);
 
   const handleDelete = (id: string) => {
@@ -18,7 +19,10 @@ const ProductList = ({ products, onDelete }: ProductListProps) => {
 
   const handleDeleteConfirm = () => {
     if (deleteId) {
-      onDelete(deleteId);
+      dispatch({
+        type: "deleteProduct",
+        payload: deleteId,
+      });
       setDeleteId(null);
     }
   };
