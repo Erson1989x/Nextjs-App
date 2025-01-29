@@ -8,25 +8,25 @@ interface ProductItemProps {
 
 const ProductItem = ({ product, handleDelete }: ProductItemProps) => {
   return (
-    <li className="py-4 px-4 hover:bg-gray-50 transition-colors duration-150 ease-in-out cursor-pointer hover:bg-gray-50 hover:shadow-md rounded-lg">
+    <li className="py-4 px-6 hover:bg-gray-50 transition-all duration-200 border-b last:border-b-0">
       <div className="flex items-center justify-between">
         <div className="min-w-0 flex-1">
-          <h3 className="text-sm font-medium text-gray-900 truncate">
+          <h3 className="text-base font-medium text-gray-900 mb-1">
             {product.name}
           </h3>
-          <div className="mt-1 flex items-center">
-            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+          <div className="flex items-center">
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
               {product.price} {product.currency}
             </span>
           </div>
         </div>
         <div className="ml-4 flex-shrink-0">
           <button
-            className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-150 ease-in-out"
+            className="inline-flex items-center px-3 py-2 text-sm font-medium rounded-md text-red-600 hover:text-white hover:bg-red-600 border border-red-200 hover:border-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-200"
             onClick={() => handleDelete(product.id)}
           >
             <svg
-              className="h-4 w-4 mr-1"
+              className="h-4 w-4 mr-1.5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

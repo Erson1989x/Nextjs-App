@@ -4,9 +4,14 @@ import ProductForm from "@/components/ProductForm/ProductForm";
 import ProductList from "@/components/ProductList/ProductList";
 import { localProducts } from "@/utils/localStorage";
 import { reducer, initialState } from "@/context/ProductContext";
+import Loading from "@/components/Loading/Loading";
+import Error from "@/components/Error/Error";
 
 export default function Home() {
-  const [{ products, status }, dispatch] = useReducer(reducer, initialState);
+  const [{ products, status, deleteId }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
   useEffect(() => {
     try {
@@ -18,17 +23,17 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-purple-100">
       <main className="container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto space-y-8">
           <h1 className="text-4xl font-bold text-center mb-2 text-gray-800">
-            Gestionarea Produselor
+            Gestionarea Produs
           </h1>
           <p className="text-center text-gray-600 mb-8">
             Adaugati si gestionati produsele
           </p>
-          {status === "loading" && <div>Loading...</div>}
-          {status === "error" && <div>Erroare la incarcarea produselor</div>}
+          {status === "loading" && <Loading />}
+          {status === "error" && <Error />}
           {status === "ready" && (
             <div className="grid gap-8 md:grid-cols-[2fr_3fr]">
               <div className="bg-white rounded-lg shadow-lg p-6">
@@ -41,7 +46,11 @@ export default function Home() {
                 <h2 className="text-xl font-semibold mb-4 text-gray-800">
                   Lista Produse
                 </h2>
-                <ProductList products={products} dispatch={dispatch} />
+                <ProductList
+                  products={products}
+                  dispatch={dispatch}
+                  deleteId={deleteId}
+                />
               </div>
             </div>
           )}

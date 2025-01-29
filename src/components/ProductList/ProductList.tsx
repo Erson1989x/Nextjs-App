@@ -1,5 +1,5 @@
 import { Product } from "@/types/products";
-import React, { useState } from "react";
+import React from "react";
 import EmptyProductList from "../EmptyProductList/EmptyProductList";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 import ProductItem from "../ProductItem/ProductItem";
@@ -8,27 +8,31 @@ import { ProductAction } from "@/context/ProductContext";
 interface ProductListProps {
   products: Product[];
   dispatch: React.Dispatch<ProductAction>;
+  deleteId: string | null;
 }
 
-const ProductList = ({ products, dispatch }: ProductListProps) => {
-  const [deleteId, setDeleteId] = useState<string | null>(null);
-
+const ProductList = ({ products, dispatch, deleteId }: ProductListProps) => {
   const handleDelete = (id: string) => {
-    setDeleteId(id);
+    dispatch({
+      type: "showDeleteConfirmation",
+      payload: id,
+    });
   };
 
   const handleDeleteConfirm = () => {
-    if (deleteId) {
-      dispatch({
-        type: "deleteProduct",
-        payload: deleteId,
-      });
-      setDeleteId(null);
-    }
+    dispatch({
+      type: "deleteProduct",
+      payload: deleteId as string,
+    });
+    dispatch({
+      type: "hideDeleteConfirmation",
+    });
   };
 
   const handleCancelDelete = () => {
-    setDeleteId(null);
+    dispatch({
+      type: "hideDeleteConfirmation",
+    });
   };
 
   if (products.length === 0) {
@@ -39,7 +43,7 @@ const ProductList = ({ products, dispatch }: ProductListProps) => {
 
   return (
     <div className="space-y-4">
-      <ul className="divide-y divide-gray-200">
+      <ul className="divide-y divide-gray-200 bg-white rounded-lg shadow-sm">
         {products.map((product) => (
           <ProductItem
             key={product.id}

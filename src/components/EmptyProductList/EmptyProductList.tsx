@@ -1,12 +1,11 @@
 import React from "react";
 
-
 const EmptyProductList = () => {
   return (
-    <div className="text-center py-8">
-      <div className="text-gray-400 mb-2">
+    <div className="text-center py-12 bg-gray-50 rounded-lg border border-gray-100">
+      <div className="text-gray-400 mb-4">
         <svg
-          className="mx-auto h-12 w-12"
+          className="mx-auto h-16 w-16"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -19,8 +18,10 @@ const EmptyProductList = () => {
           />
         </svg>
       </div>
-      <p className="text-gray-500">Nu ai adaugat produse</p>
-      <p className="text-sm text-gray-400">
+      <p className="text-gray-700 font-medium text-lg mb-2">
+        Nu ai adaugat produse
+      </p>
+      <p className="text-sm text-gray-500">
         Adauga produse in lista de produse
       </p>
     </div>
