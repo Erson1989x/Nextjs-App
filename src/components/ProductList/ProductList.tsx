@@ -42,8 +42,8 @@ const ProductList = ({ products, dispatch, deleteId }: ProductListProps) => {
   const productToDelete = products.find((product) => product.id === deleteId);
 
   return (
-    <div className="space-y-4">
-      <ul className="divide-y divide-gray-200 bg-white rounded-lg shadow-sm">
+    <div className="space-y-6">
+      <ul className="divide-y divide-gray-100 bg-white rounded-lg">
         {products.map((product) => (
           <ProductItem
             key={product.id}

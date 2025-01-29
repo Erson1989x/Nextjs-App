@@ -8,7 +8,7 @@ interface ProductItemProps {
 
 const ProductItem = ({ product, handleDelete }: ProductItemProps) => {
   return (
-    <li className="py-4 px-6 hover:bg-gray-50 transition-all duration-200 border-b last:border-b-0">
+    <li className="p-4 hover:bg-gray-50 transition-colors">
       <div className="flex items-center justify-between">
         <div className="min-w-0 flex-1">
           <h3 className="text-base font-medium text-gray-900 mb-1">
